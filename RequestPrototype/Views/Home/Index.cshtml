@@ -1,0 +1,8 @@
+﻿@model IEnumerable<json_data>
+@foreach (var p in Model ?? Enumerable.Empty<Product>()) {
+ @foreach(var station in Model)
+    {
+        <p>@station.Name</p>
+    }
+
+}
