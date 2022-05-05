@@ -1,8 +1,15 @@
-﻿@model IEnumerable<json_data>
-@foreach (var p in Model ?? Enumerable.Empty<Product>()) {
- @foreach(var station in Model)
-    {
-        <p>@station.Name</p>
-    }
+﻿@using RequestPrototype.Models
 
+@{  
+    ViewBag.Title = "Index";  
+}  
+<h3>Prototype: Printing the JSON response from AlphaVantage, of IBM stock data at CURRENT TIME!</h3>  
+@{   
+    var data = ViewBag.Message;  
 }
+@foreach (var p in data.stocks) {
+        <p>@p.ToString()</p>
+    }
+@foreach (var p in data.metaData) {
+        <p>@p</p>
+    }

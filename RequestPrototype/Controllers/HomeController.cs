@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Text.Json;
+using RequestPrototype.Models;
 
 namespace RequestPrototype.Controllers
 {
@@ -17,11 +18,24 @@ namespace RequestPrototype.Controllers
                 // json_data is the result of querying the data
                 dynamic json_data = JsonSerializer.Deserialize<Dictionary<string, dynamic>>(client.DownloadString(queryUri));
 
-                // for now I just pass all the data to a view, but this isn't how it should be. We need to do something with this data perhaps with Models. pretty much we have the data now,
-                // and just need to make use of it inside the view (the html page). You can just loop through the data model and print it all, it should be fairly simple.
-                // we might have to change Figure 1.1 to be an action that doesn't call index but a different razor page. Then we use this action result as a call to bring up the home page
-                // for now, lets just try to get the json data gathered here, onto a view. Preferrably using models.
-                return View(json_data);
+                // create list of all data from JSON response
+                List<string> keyList = new List<string>(json_data.Keys);
+                List<dynamic> dynamicList = new List<dynamic>();
+                foreach (var val in json_data)
+                {
+                    dynamicList.Add(val);
+                }
+
+                // create stockData model to hold JSON reponse
+                stockData stockData = new stockData
+                {
+                    metaData = keyList,   
+                    stocks = dynamicList
+                };
+                // use this to pass data to the view
+                ViewBag.Message = stockData;
+
+                return View();
             }
 
         }
