@@ -1,0 +1,33 @@
+﻿@model RequestPrototype.Models.Rootobject
+  
+@{  
+    ViewBag.Title = "Index";  
+}  
+  
+<h3>Product Page</h3>  
+<table border="1" class="table table-bordered table-responsive">  
+    <thead>  
+        <tr class="btn-primary">  
+            <th>Product ID</th>  
+            <th>Product Name</th>  
+            <th>Order ID</th>  
+            <th>Quantity</th>  
+        </tr>  
+    </thead> 
+    
+    <tbody>  
+        @{
+            foreach(var stockData in @Model.TimeSeries.StockData)
+            {
+                <tr>  
+                    <td>@stockData.Open</td>  
+                    <td>@stockData.High</td>   
+                    <td>@stockData.Low</td>   
+                    <td>@stockData.Close</td>   
+                    <td>@stockData.Volume</td>  
+                </tr>  
+            }
+        }
+    </tbody>  
+    
+</table>

@@ -1,18 +1,35 @@
 ﻿@using RequestPrototype.Models
 
+
+@model RequestPrototype.Models.userInput
+
+@using (Html.BeginForm("SearchTicker", "Home", FormMethod.Post))
+{
+    <span>Enter Symbol:</span>
+    @Html.TextBoxFor(model => model.Ticker)
+    
+    <button type="submit">Search</button>
+    @Html.ValidationMessageFor(model => model.Ticker)
+}
+
 @{  
     ViewBag.Title = "Index";  
 }  
-
+<!---
 <table class="table small">
 
-            <tr>
-                <td>
-                    <label>Enter Ticker</label> <input type="text" asp-for="Ticker" class="form-control" />
-                </td>
-                <td style="vertical-align: bottom; horiz-align: center">  <button asp-controller="Home" asp-action="Index" class="btn btn-dark">Search</button></td>
-            </tr>
-        </table>
+    <tr>
+        <td>
+            <label>Enter Ticker</label> <input type="text" asp-for="Ticker" class="form-control" />
+        </td>
+        <td style="vertical-align: bottom; horiz-align: center">  
+            <button asp-controller="Home" asp-action="Index" class="btn btn-dark">Search</button>
+       </td>
+    </tr>
+</table>
+-->
+
+<strong>Input: </strong> @Html.DisplayFor(input => input.Ticker)<br />
 
 <table class="table">
     <thead class="thead-dark">
