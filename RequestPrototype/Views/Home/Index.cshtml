@@ -4,6 +4,16 @@
     ViewBag.Title = "Index";  
 }  
 
+<table class="table small">
+
+            <tr>
+                <td>
+                    <label>Enter Ticker</label> <input type="text" asp-for="Ticker" class="form-control" />
+                </td>
+                <td style="vertical-align: bottom; horiz-align: center">  <button asp-controller="Home" asp-action="Index" class="btn btn-dark">Search</button></td>
+            </tr>
+        </table>
+
 <table class="table">
     <thead class="thead-dark">
         <tr>
