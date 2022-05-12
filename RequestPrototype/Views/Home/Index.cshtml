@@ -6,7 +6,7 @@
 @using (Html.BeginForm("SearchTicker", "Home", FormMethod.Post))
 {
     <span>Enter Symbol:</span>
-    @Html.TextBoxFor(model => model.Ticker)
+    @Html.TextBoxFor(model => model.Ticker, new { @maxlength = 4 })
     
     <button type="submit">Search</button>
     @Html.ValidationMessageFor(model => model.Ticker)
