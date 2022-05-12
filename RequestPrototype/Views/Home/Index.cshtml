@@ -1,9 +1,11 @@
 ﻿@using RequestPrototype.Models
-
-
 @model RequestPrototype.Models.UserInput
 
-@using (Html.BeginForm("SearchTicker", "Home", FormMethod.Post))
+@{  
+    ViewBag.Title = "Index";  
+}  
+
+@using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post))
 {
     <span>Enter Symbol:</span>
     @Html.TextBoxFor(model => model.Ticker, new { @maxlength = 4 })
@@ -12,84 +14,3 @@
     @Html.ValidationMessageFor(model => model.Ticker)
 }
 
-@{  
-    ViewBag.Title = "Index";  
-}  
-<!---
-<table class="table small">
-
-    <tr>
-        <td>
-            <label>Enter Ticker</label> <input type="text" asp-for="Ticker" class="form-control" />
-        </td>
-        <td style="vertical-align: bottom; horiz-align: center">  
-            <button asp-controller="Home" asp-action="Index" class="btn btn-dark">Search</button>
-       </td>
-    </tr>
-</table>
--->
-
-<strong>Input: </strong> @Html.DisplayFor(input => input.Ticker)<br />
-
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>
-                Timestamp
-            </th>
-            <th>
-                Volume
-            </th>
-            <th>
-                Low
-            </th>
-            <th>
-                High
-            </th>
-            <th>
-                Open
-            </th>
-            <th>
-                Close
-            </th>
-        </tr>
-    </thead>
-    @*@foreach (var m in @Model.Results)
-        {*@
-    <tr>
-        <td>
-            @*@m.Timestamp.ToString("dd MMM yyyy")*@ TIMESTAMP
-        </td>
-        <td>
-            @*@m.Volume.ToString("N0")*@ VOLUME
-        </td>
-        <td>
-            @*@m.Low.ToString("N2")*@ LOW
-
-        </td>
-        <td>
-            @*@m.High.ToString("N2")*@ HIGH
-
-        </td>
-        <td>
-            @*@m.Open.ToString("N2")*@ OPEN
-        </td>
-        <td>
-            @*@m.Close.ToString("N2")*@ CLOSE
-        </td>
-    </tr>
-</table>
-
-
-
-
-@*<h3>Prototype: Printing the JSON response from AlphaVantage, of IBM stock data at CURRENT TIME!</h3>  
-@{   
-    var data = ViewBag.Message;  
-}
-@foreach (var p in data.stocks) {
-        <p>@p.ToString()</p>
-    }
-@foreach (var p in data.metaData) {
-        <p>@p</p>
-    }*@
