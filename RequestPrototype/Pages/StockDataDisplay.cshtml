@@ -1,12 +1,46 @@
 ﻿@page
-
 @model RequestPrototype.Models.Rootobject
-@{
-	<div class="text-center">
-    <h2>Thanks!</h2>
-    <p>We'll ship your goods as soon as possible.</p>
-</div>
-}
+  
+@{  
+    ViewData["Title"] = "JsonData";  
+}  
+  
+<h3>Product Page</h3>  
+<table border="1" class="table table-bordered table-responsive">  
+    <thead>  
+        <tr class="btn-primary">  
+            <th>Product ID</th>  
+            <th>Product Name</th>  
+            <th>Order ID</th>  
+            <th>Quantity</th>  
+        </tr>  
+    </thead> 
+    
+    <tbody>  
+            <tr>
+                <td>TimeStamp</td>
+                <td>Open</td>  
+                <td>High</td>   
+                <td>Low</td>   
+                <td>Close</td>   
+                <td>Volume</td>  
+            </tr>
+        @{
+            foreach(var stockData in @Model?.TimeSeries)
+            {
+                <tr>  
+                    <td>@stockData.Key</td>
+                    <td>@stockData.Value.Open</td>  
+                    <td>@stockData.Value.High</td>   
+                    <td>@stockData.Value.Low</td>   
+                    <td>@stockData.Value.Close</td>   
+                    <td>@stockData.Value.Volume</td>  
+                </tr>
+            }
+        }
+    </tbody>  
+    
+</table>
 
 @functions {
     public RequestPrototype.Models.Rootobject? FullData { get; set; }

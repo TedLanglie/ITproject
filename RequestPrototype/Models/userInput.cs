@@ -2,7 +2,7 @@
 
 namespace RequestPrototype.Models
 {
-    public class userInput
+    public class UserInput
     {
         // holds the user response from the index page
         [Required(ErrorMessage = "Symbol must be set")]
