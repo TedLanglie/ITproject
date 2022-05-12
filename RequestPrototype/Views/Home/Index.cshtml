@@ -1,10 +1,20 @@
 ﻿@using RequestPrototype.Models
 @model RequestPrototype.Models.UserInput
 
-@{  
-    ViewBag.Title = "Index";  
-}  
+@{
+    ViewBag.Title = "Index";
+    Layout = "_Layout";
+}
 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
 @using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post))
 {
     <span>Enter Symbol:</span>
@@ -13,4 +23,6 @@
     <button type="submit">Search</button>
     @Html.ValidationMessageFor(model => model.Ticker)
 }
+</body>
+</html>
 
