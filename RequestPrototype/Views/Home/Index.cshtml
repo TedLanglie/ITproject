@@ -14,15 +14,24 @@
     <title>@ViewBag.Title</title>
 </head>
 
+<!--@Html.ValidationMessageFor(model => model.Ticker)-->
+
 <body>
-@using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post))
-{
-    <span>Enter Symbol:</span>
-    @Html.TextBoxFor(model => model.Ticker, new { @maxlength = 4 })
-    
-    <button type="submit">Search</button>
-    @Html.ValidationMessageFor(model => model.Ticker)
-}
+
+    <div class="upper_block_container">
+
+    </div>
+
+    <div class="input_block_container">
+        @using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post, new { @class="center"}))
+        {
+            <div class="search_wrapper">
+                <span><img class="search_icon" src="~/Icons/placeholder.svg" draggable="false"/></span>
+                <span style="height:100%;">@Html.TextBoxFor(model => model.Ticker, new { @maxlength = 4, @placeholder="Enter Symbol Here", @class="input_field", @autocomplete="off" })</span>
+            </div>
+        }
+    </div>
 </body>
+
 </html>
 

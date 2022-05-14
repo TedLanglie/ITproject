@@ -1,4 +1,55 @@
 ﻿html {
-    background-color: antiquewhite;
+    background-color: #121212;
+    color: white;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.upper_block_container {
+    height:200px;
+}
+
+.input_block_container {
+    height:750px;
+}
+
+.search_wrapper {
+    background-color: #46c753;
+    padding-left: 2%;
+    border-radius: 43px;
+    min-width: 600px;
+    height: 65px;
+    overflow: hidden;
+}
+
+.search_icon {
+    height: 25%;
+    vertical-align: middle;
+}
+
+.input_field {
+    vertical-align:middle;
+    border: 0px;
+    color: white;
+    font-size: 23px;
+    outline: none;
+    height:65px;
+    width: 80%;
+    margin-left: 4px;
+    background-color: inherit;
+}
+
+
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+
+
 
