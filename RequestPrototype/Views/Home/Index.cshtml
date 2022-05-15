@@ -27,7 +27,11 @@
         {
             <div class="search_wrapper">
                 <span><img class="search_icon" src="~/Icons/placeholder.svg" draggable="false"/></span>
-                <span style="height:100%;">@Html.TextBoxFor(model => model.Ticker, new { @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @autocomplete="off" })</span>
+                <span style="height:100%;">
+                    @Html.TextBoxFor(model => model.Ticker, 
+                        new { @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @autocomplete="off", @onkeydown="return /[a-z]/i.test(event.key)" }
+                    )
+                </span>
             </div>
         }
     </div>
