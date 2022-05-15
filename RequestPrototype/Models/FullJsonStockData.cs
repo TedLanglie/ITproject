@@ -8,6 +8,11 @@ namespace RequestPrototype.Models
         public MetaData? MetaData { get; set; }
         [JsonProperty("Time Series (5min)")]
         public Dictionary<string, StockData>? TimeSeries { get; set; }
+
+        public bool HasData() 
+        { 
+            return MetaData != null && TimeSeries != null;
+        }
     }
 
     public partial class MetaData

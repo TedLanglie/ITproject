@@ -16,6 +16,7 @@ namespace RequestPrototype.Controllers
 
         public Rootobject GetJsonData(string symbol, string function = "TIME_SERIES_INTRADAY", string interval = "5min")
         {
+            // https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=5min&apikey=3HAONZ71TFYS0307
             string QUERY_URL = $"https://www.alphavantage.co/query?function={function}&symbol={symbol}&interval={interval}&apikey=3HAONZ71TFYS0307";
             Uri queryUri = new Uri(QUERY_URL);
             using (WebClient client = new())

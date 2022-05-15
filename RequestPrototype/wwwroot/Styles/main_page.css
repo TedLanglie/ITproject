@@ -29,7 +29,7 @@ body {
 
 .search_wrapper {
     background-color: var(--green);
-    padding-left: 2%;
+    padding-left: 20px;
     border-radius: 43px;
     min-width: 600px;
     height: 65px;
@@ -41,8 +41,14 @@ body {
     vertical-align: middle;
 }
 
+.input_field::placeholder {
+    color: #e3e3e3;
+    font-weight: normal;
+}
+
 .input_field {
     text-transform: uppercase;
+    font-weight: bold;
     vertical-align:middle;
     border: 0px;
     color: white;
@@ -50,7 +56,7 @@ body {
     outline: none;
     height: 65px;
     width: 80%;
-    margin-left: 4px;
+    margin-left: 8px;
     background-color: inherit;
 }
 

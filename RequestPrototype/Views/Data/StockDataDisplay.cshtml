@@ -1,7 +1,8 @@
 ﻿@model RequestPrototype.Models.Rootobject
   
 @{
-    Layout = "_Layout"; 
+    Layout = "_Layout";
+    ViewBag.Title = "Display";
 }  
 
 <!DOCTYPE html>
@@ -14,35 +15,45 @@
 
 <body>
 
-<h3>Display Page</h3>  
-<table border="1" class="table table-striped table-dark table-hover table-sm">  
-     
-        <thead class="thead-dark">
-            <tr>
-                <td class="bg-success">TimeStamp</td>
-                <td class="bg-success">Open</td>  
-                <td class="bg-success">High</td>   
-                <td class="bg-success">Low</td>   
-                <td class="bg-success">Close</td>   
-                <td class="bg-success">Volume</td>  
-            </tr>
-        </thead>
-    <tbody>  
-        @{
-            foreach(var stockData in @Model?.TimeSeries ?? new Dictionary<string, RequestPrototype.Models.StockData>())
-            {
-                <tr>  
-                    <td>@stockData.Key</td>
-                    <td>@stockData.Value.Open</td>  
-                    <td>@stockData.Value.High</td>   
-                    <td>@stockData.Value.Low</td>   
-                    <td>@stockData.Value.Close</td>   
-                    <td>@stockData.Value.Volume</td>  
-                </tr>
-            }
+
+<h3>Display Page</h3> 
+    @{
+        if (@Model.HasData())
+        {
+            <table border="1" class="table table-striped table-dark table-hover table-sm">  
+
+                <thead class="thead-dark">
+                    <tr>
+                        <td class="bg-success">TimeStamp</td>
+                        <td class="bg-success">Open</td>  
+                        <td class="bg-success">High</td>   
+                        <td class="bg-success">Low</td>   
+                        <td class="bg-success">Close</td>   
+                        <td class="bg-success">Volume</td>  
+                    </tr>
+                </thead>
+                <tbody>  
+                    @{
+                        foreach (var stockData in @Model?.TimeSeries ?? new Dictionary<string, RequestPrototype.Models.StockData>())
+                        {
+                            <tr>  
+                                <td>@stockData.Key</td>
+                                <td>@stockData.Value.Open</td>  
+                                <td>@stockData.Value.High</td>   
+                                <td>@stockData.Value.Low</td>   
+                                <td>@stockData.Value.Close</td>   
+                                <td>@stockData.Value.Volume</td>  
+                            </tr>
+                        }
+                    }
+                </tbody>  
+
+            </table>
         }
-    </tbody>  
-    
-</table>
+        else
+        {
+            <b>Placeholder message: Incorrect Symbol</b>
+        }
+    }
 </body>
 </html>
