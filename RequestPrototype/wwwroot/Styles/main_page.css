@@ -2,6 +2,10 @@
     --green: #46c753;
 }
 
+::placeholder {
+    text-transform: none;
+}
+
 html {
     background-color: #121212;
     color: white;
@@ -38,12 +42,13 @@ body {
 }
 
 .input_field {
+    text-transform: uppercase;
     vertical-align:middle;
     border: 0px;
     color: white;
     font-size: 23px;
     outline: none;
-    height:65px;
+    height: 65px;
     width: 80%;
     margin-left: 4px;
     background-color: inherit;
