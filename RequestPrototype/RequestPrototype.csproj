@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Styles\StyleSheet.css" />
+    <None Include="wwwroot\Styles\main_page.css" />
   </ItemGroup>
 
   <ItemGroup>

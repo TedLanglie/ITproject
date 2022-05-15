@@ -1,0 +1,41 @@
+﻿
+.top_nav {
+    border-bottom: 4px solid var(--green);
+    margin-bottom: 30px;
+    display: flex;
+    list-style-type: none;
+    float: left;
+    padding: 0;
+    background-color: #101010;
+    overflow: hidden;
+    width: 100%;
+}
+
+.top_nav a {
+    display: block;
+    padding: 14px 16px;
+    text-align: center;
+    vertical-align: middle;
+    overflow-block: hidden;
+    height: 70px;
+    width: fit-content;
+    margin: auto;
+}
+
+
+.top_nav a:hover {
+    background-color: var(--green);
+}
+
+a > img {
+    display: block;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+a > b {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
