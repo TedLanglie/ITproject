@@ -7,6 +7,13 @@ namespace RequestPrototype.Controllers
 {
     public class HomeController : Controller
     {
+        private ISymbolCompanyRepository repo;
+
+        public HomeController(ISymbolCompanyRepository repo) 
+        {
+            this.repo = repo;
+        }
+
         public IActionResult Index() => View();
     }
 }
