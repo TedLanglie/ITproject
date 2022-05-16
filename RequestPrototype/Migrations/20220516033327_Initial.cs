@@ -12,14 +12,12 @@ namespace RequestPrototype.Migrations
                 name: "Companies",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Symbol = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Symbol = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Company = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Companies", x => x.Id);
+                    table.PrimaryKey("PK_Companies", x => x.Symbol);
                 });
         }
 

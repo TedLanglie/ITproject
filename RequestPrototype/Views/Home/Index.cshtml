@@ -21,12 +21,7 @@
 
     </div>
 
-    @foreach (var p in Model.Companies ?? Enumerable.Empty<SymbolCompany>()) {
-        <div>
-            <h3>@p.Company</h3>
-            @p.Symbol
-        </div>
-}
+    
 
     <div class="input_block_container">
         @using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post, new { @class="center"}))
@@ -39,8 +34,16 @@
                     )
                 </span>
             </div>
+            
         }
     </div>
+
+    @foreach (var p in Model.Companies ?? Enumerable.Empty<SymbolCompany>()) {
+        <div>
+            <h3>@p.Company</h3>
+            @p.Symbol
+        </div>
+    }
 </body>
 
 </html>

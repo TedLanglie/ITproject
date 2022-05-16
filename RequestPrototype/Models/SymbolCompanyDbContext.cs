@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace RequestPrototype.Models
 {
     public class SymbolCompany 
     {
-        public long? Id { get; set; }
+        [Key]
         public string? Symbol { get; set; }
         public string? Company { get; set; }
     }

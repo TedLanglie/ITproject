@@ -24,7 +24,7 @@ body {
 }
 
 .input_block_container {
-    height:750px;
+    height:200px;
 }
 
 .search_wrapper {
@@ -42,8 +42,8 @@ body {
 }
 
 .input_field::placeholder {
-    color: #e3e3e3;
-    font-weight: normal;
+    color: white;
+    font-weight: 400;
 }
 
 .input_field {
