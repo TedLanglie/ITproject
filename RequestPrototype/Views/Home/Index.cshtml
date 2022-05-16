@@ -1,5 +1,5 @@
 ﻿@using RequestPrototype.Models
-@model RequestPrototype.Models.UserInput
+@model RequestPrototype.Models.HomeViewModel
 
 
 @{
@@ -15,13 +15,18 @@
     <title>@ViewBag.Title</title>
 </head>
 
-<!--@Html.ValidationMessageFor(model => model.Ticker)-->
-
 <body>
 
     <div class="upper_block_container">
 
     </div>
+
+    @foreach (var p in Model.Companies ?? Enumerable.Empty<SymbolCompany>()) {
+        <div>
+            <h3>@p.Company</h3>
+            @p.Symbol
+        </div>
+}
 
     <div class="input_block_container">
         @using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post, new { @class="center"}))
@@ -29,7 +34,7 @@
             <div class="search_wrapper">
                 <span><img class="search_icon" src="~/Icons/placeholder.svg" draggable="false"/></span>
                 <span style="height:100%;">
-                    @Html.TextBoxFor(model => model.Ticker, 
+                    @Html.TextBoxFor(model => model.Ticker,
                         new { @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @autocomplete="off", @onkeydown="return /[a-z]/i.test(event.key)" }
                     )
                 </span>

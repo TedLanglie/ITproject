@@ -7,11 +7,12 @@ namespace RequestPrototype.Controllers
 {
     public class DataController : Controller
     {
-        public IActionResult StockDataDisplay(UserInput input)
+        [HttpPost]
+        public IActionResult StockDataDisplay(HomeViewModel input)
         {
             if (ModelState.IsValid && input.Ticker != null)
                 return View(GetJsonData(input.Ticker));
-            return View();
+            return View(new Rootobject());
         }
 
         public Rootobject GetJsonData(string symbol, string function = "TIME_SERIES_INTRADAY", string interval = "5min")
