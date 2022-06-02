@@ -39,7 +39,7 @@
     {
         <div class="input_block_container">
             <div class="search_wrapper">
-                <span><img class="search_icon" src="~/Icons/placeholder.svg" draggable="false"/></span>
+                <span><img class="search_icon" src="~/Icons/rocketship_icon.svg" draggable="false"/></span>
                 <span style="height:100%;">
                     @Html.TextBoxFor(model => model.Ticker,
                         new { @id="input", @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @onkeydown="return /[a-z]/i.test(event.key)", @autocomplete="off", @onkeyup="onInputChange( document.getElementById('input').value )" }
