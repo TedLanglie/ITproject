@@ -34,12 +34,21 @@ function setDropdownTable(tableData, table) {
 
     tableData.forEach(function (rowData) {
         let row = document.createElement('tr');
-        let link = document.createElement('input');
-        link.setAttribute("type", "submit");
-        link.setAttribute("value", rowData.Symbol);
-        link.setAttribute("onclick", "onClickDropdown(rowData.Symbol)");
-        link.innerHTML = rowData.Symbol;
-        row.appendChild(link);
+        let symbol = document.createElement('a');
+        let company = document.createElement('a');
+
+        symbol.innerHTML = rowData.Symbol;
+        company.innerHTML = rowData.Company;
+
+        row.onclick = () => {
+            let form = document.getElementById("inputform");
+            let input = document.getElementById("input");
+            input.value = rowData.Symbol;
+            form.submit();
+        }
+
+        row.appendChild(symbol);
+        row.appendChild(company);
         tableBody.appendChild(row);
     });
 
