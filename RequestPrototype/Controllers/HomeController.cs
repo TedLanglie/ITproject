@@ -15,5 +15,6 @@ namespace RequestPrototype.Controllers
         }
 
         public IActionResult Index() => View(new HomeViewModel() { Companies = repo.Companies});
+
     }
 }

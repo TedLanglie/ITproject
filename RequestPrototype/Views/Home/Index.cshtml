@@ -1,11 +1,25 @@
-﻿@using RequestPrototype.Models
+﻿@using Microsoft.AspNetCore.Components
+@using Newtonsoft.Json
+@using RequestPrototype.Models
 @model RequestPrototype.Models.HomeViewModel
-
 
 @{
     ViewBag.Title = "Home Page";
     Layout = "_Layout";
 }
+
+@{
+    var json = JsonConvert.SerializeObject(Model?.Companies?.ToArray());
+}
+<script src="~/Scripts/mainpage.js"></script>
+<script type="text/javascript">
+    let json = @(Html.Raw(json));
+
+    function onInputChange(input) {
+        let table = document.getElementById("droptable");
+        setDropdownTable(getResults(input, json), table);
+    }
+</script>
 
 <!DOCTYPE html>
 
@@ -21,30 +35,35 @@
 
     </div>
 
-    
-
-    <div class="input_block_container">
-        @using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post, new { @class="center"}))
-        {
+    @using (Html.BeginForm("StockDataDisplay", "Data", FormMethod.Post, new { @class="center", @id = "inputform"}))
+    {
+        <div class="input_block_container">
             <div class="search_wrapper">
                 <span><img class="search_icon" src="~/Icons/placeholder.svg" draggable="false"/></span>
                 <span style="height:100%;">
                     @Html.TextBoxFor(model => model.Ticker,
-                        new { @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @autocomplete="off", @onkeydown="return /[a-z]/i.test(event.key)" }
+                        new { @id="input", @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @onkeydown="return /[a-z]/i.test(event.key)", @autocomplete="off", @onkeyup="onInputChange( document.getElementById('input').value )" }
                     )
                 </span>
             </div>
-            
-        }
-    </div>
-
-    @foreach (var p in Model.Companies ?? Enumerable.Empty<SymbolCompany>()) {
-        <div>
-            <h3>@p.Company</h3>
-            @p.Symbol
         </div>
+
+        <!--
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                <a href="#">Link1</a>
+                <a href="#">Link1</a>
+                <a href="#">Link1</a>
+            </div>
+        </div>
+        -->
+        <table id="droptable"></table>
     }
 </body>
 
 </html>
+
+
+
 
