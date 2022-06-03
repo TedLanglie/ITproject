@@ -42,7 +42,8 @@
                 <span><img class="search_icon" src="~/Icons/rocketship_icon.svg" draggable="false"/></span>
                 <span style="height:100%;">
                     @Html.TextBoxFor(model => model.Ticker,
-                        new { @id="input", @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @onkeydown="return /[a-z]/i.test(event.key)", @autocomplete="off", @onkeyup="onInputChange( document.getElementById('input').value )" }
+                        new { @id="input", @maxlength = 5, @placeholder="Enter Symbol Here", @class="input_field", @onkeydown="return /[a-z]/i.test(event.key)", 
+                        @autocomplete="off", @onkeyup="onInputChange( document.getElementById('input').value )" }
                     )
                 </span>
             </div>

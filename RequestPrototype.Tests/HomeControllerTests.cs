@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -17,15 +18,19 @@ namespace RequestPrototype.Tests
             // Arrange
             Mock<ISymbolCompanyRepository> mock = new Mock<ISymbolCompanyRepository>();
             mock.Setup(m => m.Companies).Returns((new SymbolCompany[] {
-                new SymbolCompany {Id=1, Company = "Microsoft", Symbol="MSFT"},
-                new SymbolCompany {Id = 2, Company = "Apple", Symbol="AAPL"}
+                new SymbolCompany {Symbol = "MSFT", Company = "Microsoft"},
+                new SymbolCompany {Symbol="AAPL", Company = "Apple"}
             }).AsQueryable());
             HomeController controller = new HomeController(mock.Object);
             // Act
-            IEnumerable<SymbolCompany>? result = (controller.Index() as ViewResult)?.ViewData.Model
-            as IEnumerable<SymbolCompany>;
+            HomeViewModel? model = (controller.Index() as ViewResult)?.ViewData.Model
+            as HomeViewModel;
+
+            IEnumerable<SymbolCompany>? result = model?.Companies;
             // Assert
             SymbolCompany[] prodArray = result?.ToArray() ?? Array.Empty<SymbolCompany>();
+
+            Trace.WriteLine($"=================>{prodArray.Length}");
 
             Assert.True(prodArray.Length == 2);
             Assert.Equal("Microsoft", prodArray[0].Company);
