@@ -30,8 +30,6 @@ namespace RequestPrototype.Tests
             // Assert
             SymbolCompany[] prodArray = result?.ToArray() ?? Array.Empty<SymbolCompany>();
 
-            Trace.WriteLine($"=================>{prodArray.Length}");
-
             Assert.True(prodArray.Length == 2);
             Assert.Equal("Microsoft", prodArray[0].Company);
             Assert.Equal("MSFT", prodArray[0].Symbol);

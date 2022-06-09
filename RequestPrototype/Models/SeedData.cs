@@ -21,7 +21,7 @@ namespace RequestPrototype.Models
             }
         }
 
-        private static IEnumerable<SymbolCompany> GetCompaniesFromFile(string filename = @"App_Data/SymbolCompany/stock_symbols_list.csv") 
+        public static IEnumerable<SymbolCompany> GetCompaniesFromFile(string filename = @"App_Data/SymbolCompany/stock_symbols_list.csv") 
         {
             TextFieldParser? parser = GetParser(filename);
             if(parser == null)
@@ -38,7 +38,7 @@ namespace RequestPrototype.Models
                     string[] fields = parser.ReadFields();
                     string? symbol = null;
                     string? company = null;
-                    for (int i = 0; i < fields.Length; i++)
+                    for (int i = 0; i < fields?.Length; i++)
                     {
                         if (i == 0)
                             symbol = fields[i];

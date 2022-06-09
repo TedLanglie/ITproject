@@ -9,18 +9,23 @@
 
 <html>
 <head>
+    <link href="~/Styles/display.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
 
 <body>
+    <div class="upper_block_container"></div>
 
-
-<h3>Display Page</h3> 
+    <div class="display-wrapper">
     @{
         if (@Model.HasData())
         {
-            <table border="1" class="table table-striped table-dark table-hover table-sm">  
+            <div class="inner-display">
+                <h2><b>@Model?.MetaData?.Symbol?.ToUpper()</b></h2>
+            
+
+            <table border="1" class="table table-striped table-dark table-hover table-sm display-table">  
 
                 <thead class="thead-dark">
                     <tr>
@@ -49,11 +54,15 @@
                 </tbody>  
 
             </table>
+            </div>
         }
         else
         {
-            <b>Placeholder message: Incorrect Symbol</b>
+            <div class="error">
+                <h2><b>Error: Incorrect Symbol</b></h2>
+            </div>
         }
     }
+    </div>
 </body>
 </html>
