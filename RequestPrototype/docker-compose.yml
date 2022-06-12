@@ -11,5 +11,5 @@ services:
     sqlserver:
         image: "mcr.microsoft.com/mssql/server"
         environment:
-            SA_PASSWORD: "MoonDatabase"
+            SA_PASSWORD: "MoonDatabase!"
             ACCEPT_EULA: "Y"
