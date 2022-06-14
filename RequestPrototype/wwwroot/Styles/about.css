@@ -1,0 +1,37 @@
+.image {
+    width: 450px;
+    border: 5px solid black;
+    vertical-align: top;
+    float:left;
+}
+
+.name_title {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 80px;
+}
+
+.image_container {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+p {
+    float: right;
+    font-size: 30px;
+    font-weight: 500;
+    width: 70%;
+    padding-right: 30px;
+}
+
+.desc_container {
+    display: inline-flex;
+}
+
+.break {
+    height: 40px;
+}
+
+.break_long {
+    height: 200px;
+}
