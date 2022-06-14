@@ -38,4 +38,10 @@ a > b {
     display: flex;
     height: 100%;
     align-items: center;
+    
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: white;
 }

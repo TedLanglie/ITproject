@@ -7,3 +7,26 @@
     margin: 0 auto;
     text-align: center;
 }
+
+.error_icon {
+    width: 150px;
+}
+
+.break {
+    height: 20px;
+}
+
+.home_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #dd6b6b;
+    width: 160px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.home_button > a {
+}
